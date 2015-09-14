@@ -5,9 +5,19 @@
   <p class="date">
     Создан <%= time_ago_in_words(@post.created_at) %> назад
     | <%= link_to 'Редактировать', edit_post_path(@post) %>
-    | <%= link_to 'Удалить', post_path(@post), method: :delete, data: { confirm: "Вы уверены, что хотите удалить эту запись?" } %>
+    | <%= link_to 'Удалить', post_path(@post), method: :delete, data: {confirm: "Вы уверены, что хотите удалить эту запись?"} %>
   </p>
-  <div>
+
+  <p class="body">
     <%= @post.body %>
+  </p>
+
+  <div id="comments">
+    <h2><%= @post.comments.count %> <%=Russian::pluralize(@post.comments.count, "комментарий", "комментария", "комментариев" ) %></h2>
+    <%= render @post.comments %>
+
+    <h3>Добавить комментарий:</h3>
+    <%= render "comments/form" %>
   </div>
+
 </div>
