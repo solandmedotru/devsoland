@@ -1,6 +1,9 @@
 <% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    <div><%= truncate(post.body, :length => 35) %></div>
+    <h1><%= post.title %></h1>
+    <p class="date">
+      Создан <%= time_ago_in_words(post.created_at) %> назад
+    </p>
+    <div><%= truncate(post.body, :length => 250) %></div>
     <br>
     <%= link_to 'Читать далее...', post %>
 

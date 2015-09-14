@@ -1,4 +1,7 @@
 <h1><%= @post.title %></h1>
+<p class="date">
+  Создан <%= time_ago_in_words(@post.created_at) %> назад
+</p>
 <div>
   <%= @post.body %>
 </div>
