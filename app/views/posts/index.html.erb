@@ -1,10 +1,14 @@
 <% @posts.each do |post| %>
-    <h1><%= post.title %></h1>
-    <p class="date">
-      Создан <%= time_ago_in_words(post.created_at) %> назад
-    </p>
-    <div><%= truncate(post.body, :length => 250) %></div>
-    <br>
-    <%= link_to 'Читать далее...', post %>
+    <div class="post_wrapper">
+      <h2 class="title"><%= link_to post.title, post %></h2>
+
+      <p class="date">
+        <%= post.created_at.strftime("%B %d, %Y") %>
+      </p>
+
+      <div><%= truncate(post.body, :length => 250) %></div>
+      <br>
+      <%= link_to 'Читать далее...', post %>
+    </div>
 
 <% end %>
