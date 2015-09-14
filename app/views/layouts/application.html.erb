@@ -23,7 +23,7 @@
   </ul>
 
   <ul>
-    <li class="category">Соц.сети</li>
+    <li class="category">Контакты</li>
     <li><a href="https://twitter.com/solomin_andrey"><%= icon('twitter-square', class: 'icon') %></a></li>
     <li><a href="http://instagram.com/solandmedotru"><%= icon('instagram', class: 'icon') %></a></li>
     <li><a href="https://github.com/solandmedotru"><%= icon('github-square', class: 'icon') %></a></li>
@@ -33,7 +33,16 @@
 
 </div>
 <div id="main_content">
-
+  <div id="header">
+    <p>Все записи</p>
+    <div class="buttons">
+      <button class="button"><%= link_to "Новая запись", new_post_path %></button>
+      <button class="button">Выход</button>
+    </div>
+</div>
+  <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert") %>
+  <% end %>
 <%= yield %>
 </div>
 </body>
