@@ -2,15 +2,39 @@
 <html>
 <head>
   <title>DevSolanD.ru</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Ubuntu:400,700' %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Главная", root_path %> |
-<%= link_to "Новая запись", new_post_path %>
+<div id="sidebar">
+  <div id="avatar-box">
+    <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "avatar" %>
+    <% end %>
+  </div>
+
+  <ul>
+    <li class="category">Главная</li>
+    <li><%= link_to "Блог", root_path %></li>
+    <li>Обо мне</li>
+  </ul>
+
+  <ul>
+    <li class="category">Соц.сети</li>
+    <li><a href="https://twitter.com/solomin_andrey"><%= icon('twitter-square', class: 'icon') %></a></li>
+    <li><a href="http://instagram.com/solandmedotru"><%= icon('instagram', class: 'icon') %></a></li>
+    <li><a href="https://github.com/solandmedotru"><%= icon('github-square', class: 'icon') %></a></li>
+    <li><a href="mailto:solomin_andrey@gmail.com"><%= icon('envelope', class: 'icon_sm') %></a></li>
+  </ul>
+<p class="sign_in">Админка</p>
+
+</div>
+<div id="main_content">
 
 <%= yield %>
-
+</div>
 </body>
 </html>
