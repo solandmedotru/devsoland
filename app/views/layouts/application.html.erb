@@ -31,7 +31,7 @@
   </ul>
 
   <% if !user_signed_in? %>
-      <p class="sign_in">Админка</p>
+      <p class="sign_in"><%= link_to('Админка', new_user_session_path)  %></p>
   <% end %>
 </div>
 <div id="main_content">
@@ -47,8 +47,8 @@
 
     <% if user_signed_in? %>
         <div class="buttons">
-          <button class="button"><%= link_to "Новая запись", new_post_path %></button>
-          <button class="button">Выход</button>
+          <button class="button"><%= link_to 'Новая запись', new_post_path %></button>
+          <button class="button"><%= link_to('Выход', destroy_user_session_path, :method => :delete) %></button>
         </div>
     <% end %>
   </div>
